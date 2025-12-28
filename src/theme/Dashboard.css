@@ -1,0 +1,428 @@
+/* ===========================
+   Theme variables (easy to tweak)
+   =========================== */
+:root {
+  --bg: #0b1020; /* deep backdrop for glow */
+  --card: rgba(255, 255, 255, 0.08);
+  --card-strong: rgba(255, 255, 255, 0.14);
+  --text: #e7eaf6;
+  --muted: #93a1b5;
+  --accent: #7c3aed; /* purple glow */
+  --accent-2: #22d3ee; /* cyan glow */
+  --shadow: 0 20px 40px rgba(0,0,0,.45);
+  --radius: 14px;
+}
+
+/* ===========================
+   Layout base
+   =========================== */
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% -10%, rgba(124,58,237,.25), transparent 40%),
+    radial-gradient(circle at 100% 0%, rgba(34,211,238,.20), transparent 40%),
+    linear-gradient(#0b1020, #0a0f1a 60%, #0b1020 100%);
+  color: var(--text);
+}
+
+/* ===========================
+   Content container (glassmorphism)
+   =========================== */
+.dashboard-content {
+  flex: 1;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.04),
+    rgba(255,255,255,0.02)
+  );
+  border-left: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: saturate(1.2) blur(6px);
+}
+
+/* Glow accents */
+.dashboard-content::before,
+.dashboard-content::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 0;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.dashboard-content::before {
+  left: -40px;
+  top: -40px;
+  background: radial-gradient(circle, var(--accent), transparent 60%);
+}
+
+.dashboard-content::after {
+  right: -60px;
+  bottom: -60px;
+  background: radial-gradient(circle, var(--accent-2), transparent 60%);
+}
+
+/* ===========================
+   Cards
+   =========================== */
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.04)
+  );
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 10px 25px rgba(0,0,0,.25);
+  padding: 20px;
+  color: var(--text);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.32);
+}
+
+/* Card glow effect */
+.card--glow {
+  box-shadow: 0 0 0 0 rgba(124,58,237,0);
+}
+
+.card--glow:hover,
+.card--glow.active {
+  box-shadow:
+    0 0 0 6px rgba(124,58,237,.15),
+    0 14px 40px rgba(124,58,237,.35);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-header h3 {
+  font-size: 16px;
+  margin: 0;
+  letter-spacing: .4px;
+}
+
+.kbd {
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.15);
+}
+
+/* ===========================
+   Stats grid
+   =========================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.stat-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,.10),
+    rgba(255,255,255,.04)
+  );
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 8px 20px rgba(0,0,0,.22);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-card .label {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.stat-card .value {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.spark {
+  height: 28px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    rgba(124,58,237,.25),
+    rgba(34,211,238,.25)
+  );
+  overflow: hidden;
+}
+
+.spark i {
+  display: block;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent-2)
+  );
+  animation: sweep 2.5s infinite;
+}
+
+@keyframes sweep {
+  0% { transform: translateX(-40%); }
+  50% { transform: translateX(60%); }
+  100% { transform: translateX(-40%); }
+}
+
+/* ===========================
+   Bottom grid
+   =========================== */
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.activity,
+.progress {
+  background: rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+.activity-item {
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(255,255,255,.15);
+}
+
+.activity-item span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.progress-bar {
+  background: #1f2937;
+  height: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 58%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 14px rgba(124,58,237,.8);
+}
+
+/* ===========================
+   Badges
+   =========================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(124,58,237,.18);
+  border: 1px solid rgba(124,58,237,.38);
+  font-size: 12px;
+}
+
+.badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 900px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-content {
+    padding: 16px;
+  }
+}
+/* ===========================
+   Bigger + fuller layout
+   =========================== */
+
+.muted-text {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+/* Make stat cards bigger */
+.stat-card {
+  min-height: 140px;
+  justify-content: space-between;
+}
+
+/* ===========================
+   Overview grid (new section)
+   =========================== */
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.big-card {
+  min-height: 200px;
+}
+
+.big-card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+/* ===========================
+   Team Performance
+   =========================== */
+.performance-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.perf-box {
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.perf-box h2 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.perf-box span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.perf-box.success {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+.perf-box.info {
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+}
+
+/* ===========================
+   Workspace Overview
+   =========================== */
+.workspace-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.workspace-storage {
+  margin-top: 16px;
+}
+
+.workspace-storage span {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 900px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ===========================
+   Typography upgrade (ONLY FONT + SIZE)
+   =========================== */
+
+/* Global font refinement */
+.dashboard-content {
+  font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Dashboard heading */
+.dashboard-content h2 {
+  font-size: 36px;              /* bigger */
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  margin-bottom: 6px;
+  line-height: 1.25;
+  color: #f5f7ff;
+}
+
+/* Subtitle text */
+.muted-text {
+  font-size: 15.5px;            /* slightly bigger */
+  font-weight: 400;
+  letter-spacing: 0.35px;
+  line-height: 1.6;
+}
+
+/* Section headings (Recent Activity, Sprint Progress, etc.) */
+.card h3,
+.big-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+/* Stat card numbers */
+.stat-card .value {
+  font-size: 26px;              /* bigger stats */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Stat card labels */
+.stat-card .label {
+  font-size: 12.5px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* Activity text */
+.activity-item {
+  font-size: 14.5px;
+}
+
+/* Workspace & performance text */
+.workspace-item,
+.perf-box span {
+  font-size: 14px;
+}
