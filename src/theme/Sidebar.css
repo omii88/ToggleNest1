@@ -345,3 +345,144 @@
   transform: translateY(-2px);
   background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(34,211,238,0.25));
 }
+
+.menu li.clickable {
+  cursor: pointer;
+}
+
+/* New Sprint button styled like sidebar options */
+.sidebar-action-btn {
+  width: 200px;
+  margin-left: 20px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 14px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(34,211,238,0.15));
+  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.sidebar-action-btn:hover {
+  background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(34,211,238,0.25));
+  transform: translateY(-3px);
+  box-shadow: 
+    0 12px 32px rgba(124,58,237,0.4),
+    0 0 0 1px rgba(124,58,237,0.5);
+  border-color: rgba(124,58,237,0.6);
+}
+.sprints-screen {
+  display: flex;
+  background: #0f121b;
+  color: white;
+  min-height: calc(100vh - 80px);
+  width: 100%;
+}
+
+/* Left Side Fixed Button */
+.sprint-left-actions {
+  width: 200px;
+  padding: 20px;
+}
+
+.add-sprint-btn {
+  background: linear-gradient(135deg, #7f5af0, #4f46e5, #00c6ff);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  backdrop-filter: blur(8px);
+  transition: 0.3s ease;
+  width: 100%;
+}
+.add-sprint-btn:hover {
+  transform: scale(1.05);
+}
+
+
+/* Center sprint cards */
+.sprint-main {
+  flex: 1;
+  padding: 30px;
+}
+
+.sprint-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 20px;
+  border-radius: 12px;
+  width: 70%;
+  margin: 20px auto;
+  backdrop-filter: blur(6px);
+  color: white;
+}
+
+/* progress bar */
+.sprint-progress {
+  background: rgba(255,255,255,0.2);
+  height: 8px;
+  width: 100%;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+.sprint-progress-fill {
+  background: #4ade80;
+  height: 100%;
+  border-radius: 4px;
+}
+
+/* delete btn */
+.delete-sprint-btn {
+  background: #ef4444;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+.sprint-page {
+  display: flex;
+  background: linear-gradient(180deg, rgba(11,16,32,0.95), rgba(2,6,23,0.98));
+  min-height: 100vh;
+  width: 100%;
+  color: var(--text);
+}
+
+/* Full page layout like dashboard */
+.sprints-page {
+  min-height: 100vh;
+  padding: 120px 0 40px;   /* pushes content below navbar */
+  background: linear-gradient(180deg, rgba(11,16,32,0.95), rgba(2,6,23,0.98));
+  display: flex;
+  justify-content: center;
+}
+
+/* Center content nicely */
+.sprints-container {
+  width: 90%;
+  max-width: 1100px;
+  color: var(--text);
+}
+
+/* Empty state text */
+.no-sprints-text {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 1rem;
+  padding-left: 20px;
+}
+
+.sprints-empty {
+  padding-left: 500px;
+  margin-top: 50px;
+  font-size: 1.1rem;
+  color: #d1d5db;
+}

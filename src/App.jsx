@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
 import Projectboard from "./pages/Projectboard";
+import Sprints from "./pages/Sprints";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +25,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/project-board" element={<Projectboard />} />
+        <Route path="/sprints" element={<Sprints />} />
       </Routes>
   
     </>

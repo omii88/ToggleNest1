@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // added this
 import "../theme/Sidebar.css";
 
 const Sidebar = ({ addProject, addTask }) => {
+  const navigate = useNavigate(); // initialize navigate
   const [showProjectPopup, setShowProjectPopup] = useState(false);
   const [showTaskPopup, setShowTaskPopup] = useState(false);
   const [nameValue, setNameValue] = useState("");
@@ -36,7 +38,12 @@ const Sidebar = ({ addProject, addTask }) => {
         <ul className="menu">
           <li className="active">Dashboard</li>
           <li>Boards</li>
-          <li>Sprints</li>
+          <li 
+            className="clickable" 
+            onClick={() => navigate("/sprints")} // added navigation
+          >
+            Sprints
+          </li>
           <li>Analytics</li>
           <li>Team</li>
         </ul>
