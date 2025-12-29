@@ -40,9 +40,18 @@ const Sidebar = ({ addProject, addTask }) => {
             {({ isActive }) => <li className={isActive ? "active" : ""}>Boards</li>}
           </NavLink>
 
-          <li>Sprints</li>
-          <li>Analytics</li>
-          <li>Team</li>
+        <NavLink to="/sprints" className="menu-link">
+  {({ isActive }) => <li className={isActive ? "active" : ""}>Sprints</li>}
+</NavLink>
+
+<NavLink to="/analytics" className="menu-link">
+  {({ isActive }) => <li className={isActive ? "active" : ""}>Analytics</li>}
+</NavLink>
+
+<NavLink to="/teampage" className="menu-link">
+  {({ isActive }) => <li className={isActive ? "active" : ""}>Team</li>}
+</NavLink>
+
         </ul>
 
         <div className="quick-actions">

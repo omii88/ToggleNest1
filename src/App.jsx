@@ -7,6 +7,9 @@ import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
 import Projectboard from "./pages/Projectboard";
 import Boards from "./pages/Boards"
+import Analytics from "./pages/Analytics";
+import TeamPage from "./pages/TeamPage";
+
 function App() {
   return (
     <>
@@ -20,6 +23,8 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/project-board" element={<Projectboard />} />
         <Route path="/boards" element={<Boards />} />
+        <Route path="/analytics" element={<Analytics />} />
+        <Route path="/teampage" element={<TeamPage />} />
 
       </Routes>
     </>
