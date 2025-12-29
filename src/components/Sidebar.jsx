@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // added this
+import { NavLink } from "react-router-dom";
 import "../theme/Sidebar.css";
 
 const Sidebar = ({ addProject, addTask }) => {
-  const navigate = useNavigate(); // initialize navigate
+  
   const [showProjectPopup, setShowProjectPopup] = useState(false);
   const [showTaskPopup, setShowTaskPopup] = useState(false);
   const [nameValue, setNameValue] = useState("");
   const [deadlineValue, setDeadlineValue] = useState("");
 
   const handleAddProject = () => {
-    if (nameValue.trim() !== "" && deadlineValue !== "") {
+    if (nameValue.trim() && deadlineValue) {
       addProject({ name: nameValue.trim(), deadline: deadlineValue });
       setNameValue("");
       setDeadlineValue("");
@@ -19,11 +19,8 @@ const Sidebar = ({ addProject, addTask }) => {
   };
 
   const handleAddTask = () => {
-    if (nameValue.trim() !== "" && deadlineValue !== "") {
-      addTask({ 
-        name: nameValue.trim(), 
-        deadline: deadlineValue 
-      });
+    if (nameValue.trim() && deadlineValue) {
+      addTask({ name: nameValue.trim(), deadline: deadlineValue });
       setNameValue("");
       setDeadlineValue("");
       setShowTaskPopup(false);
@@ -32,20 +29,25 @@ const Sidebar = ({ addProject, addTask }) => {
 
   return (
     <>
-      <div className="sidebar">
+      <aside className="sidebar">
         <h2 className="logo">Workspace</h2>
 
         <ul className="menu">
-          <li className="active">Dashboard</li>
-          <li>Boards</li>
-          <li 
-            className="clickable" 
-            onClick={() => navigate("/sprints")} // added navigation
-          >
-            Sprints
+          <li>
+            <NavLink to="/dashboard" className={({ isActive }) => (isActive ? "active menu-link" : "menu-link")}>Dashboard</NavLink>
           </li>
-          <li>Analytics</li>
-          <li>Team</li>
+          <li>
+            <NavLink to="/boards" className={({ isActive }) => (isActive ? "active menu-link" : "menu-link")}>Boards</NavLink>
+          </li>
+          <li>
+            <NavLink to="/sprints" className={({ isActive }) => (isActive ? "active menu-link" : "menu-link")}>Sprints</NavLink>
+          </li>
+          <li>
+            <NavLink to="/analytics" className={({ isActive }) => (isActive ? "active menu-link" : "menu-link")}>Analytics</NavLink>
+          </li>
+          <li>
+            <NavLink to="/team" className={({ isActive }) => (isActive ? "active menu-link" : "menu-link")}>Team</NavLink>
+          </li>
         </ul>
 
         <div className="quick-actions">
@@ -53,11 +55,11 @@ const Sidebar = ({ addProject, addTask }) => {
           <button onClick={() => setShowTaskPopup(true)}>+ New Task</button>
           <button onClick={() => setShowProjectPopup(true)}>+ New Project</button>
         </div>
-      </div>
+      </aside>
 
-      {/* ================= POPUP FOR TASK ================= */}
+      {/* TASK POPUP */}
       {showTaskPopup && (
-        <div className="popup-overlay">
+        <div className="popup-overlay open">
           <div className="popup-card">
             <h3>Create New Task</h3>
             <input
@@ -81,9 +83,9 @@ const Sidebar = ({ addProject, addTask }) => {
         </div>
       )}
 
-      {/* ================= POPUP FOR PROJECT ================= */}
+      {/* PROJECT POPUP */}
       {showProjectPopup && (
-        <div className="popup-overlay">
+        <div className="popup-overlay open">
           <div className="popup-card">
             <h3>Create New Project</h3>
             <input
