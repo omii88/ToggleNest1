@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "../theme/Sidebar.css";
 
 const Sidebar = ({ addProject, addTask }) => {
@@ -8,7 +9,7 @@ const Sidebar = ({ addProject, addTask }) => {
   const [deadlineValue, setDeadlineValue] = useState("");
 
   const handleAddProject = () => {
-    if (nameValue.trim() !== "" && deadlineValue !== "") {
+    if (nameValue.trim() && deadlineValue) {
       addProject({ name: nameValue.trim(), deadline: deadlineValue });
       setNameValue("");
       setDeadlineValue("");
@@ -17,11 +18,8 @@ const Sidebar = ({ addProject, addTask }) => {
   };
 
   const handleAddTask = () => {
-    if (nameValue.trim() !== "" && deadlineValue !== "") {
-      addTask({ 
-        name: nameValue.trim(), 
-        deadline: deadlineValue 
-      });
+    if (nameValue.trim() && deadlineValue) {
+      addTask({ name: nameValue.trim(), deadline: deadlineValue });
       setNameValue("");
       setDeadlineValue("");
       setShowTaskPopup(false);
@@ -30,12 +28,18 @@ const Sidebar = ({ addProject, addTask }) => {
 
   return (
     <>
-      <div className="sidebar">
+      <aside className="sidebar">
         <h2 className="logo">Workspace</h2>
 
         <ul className="menu">
-          <li className="active">Dashboard</li>
-          <li>Boards</li>
+          <NavLink to="/dashboard" className="menu-link">
+            {({ isActive }) => <li className={isActive ? "active" : ""}>Dashboard</li>}
+          </NavLink>
+
+          <NavLink to="/boards" className="menu-link">
+            {({ isActive }) => <li className={isActive ? "active" : ""}>Boards</li>}
+          </NavLink>
+
           <li>Sprints</li>
           <li>Analytics</li>
           <li>Team</li>
@@ -46,11 +50,11 @@ const Sidebar = ({ addProject, addTask }) => {
           <button onClick={() => setShowTaskPopup(true)}>+ New Task</button>
           <button onClick={() => setShowProjectPopup(true)}>+ New Project</button>
         </div>
-      </div>
+      </aside>
 
-      {/* ================= POPUP FOR TASK ================= */}
+      {/* TASK POPUP */}
       {showTaskPopup && (
-        <div className="popup-overlay">
+        <div className="popup-overlay open">
           <div className="popup-card">
             <h3>Create New Task</h3>
             <input
@@ -74,9 +78,9 @@ const Sidebar = ({ addProject, addTask }) => {
         </div>
       )}
 
-      {/* ================= POPUP FOR PROJECT ================= */}
+      {/* PROJECT POPUP */}
       {showProjectPopup && (
-        <div className="popup-overlay">
+        <div className="popup-overlay open">
           <div className="popup-card">
             <h3>Create New Project</h3>
             <input
