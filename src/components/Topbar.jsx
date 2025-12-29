@@ -1,4 +1,5 @@
 import "../theme/Topbar.css";
+const username = localStorage.getItem("username") || "GUEST";
 
 const Topbar = () => {
   return (
@@ -8,7 +9,7 @@ const Topbar = () => {
         placeholder="Search tasks, projects..."
       />
       <div className="user">
-        <span>GUEST</span>
+        <span>{username}</span>
         <img src="https://i.pravatar.cc/40" alt="user" />
       </div>
     </div>
