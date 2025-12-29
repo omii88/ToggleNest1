@@ -10,7 +10,7 @@ const Signup = () => {
     const name = e.target[0].value; 
     localStorage.setItem("username", name); // store in localStorage
 
-    window.location.href = "/dashboard"; // redirect after signup
+    window.location.href = "/login"; // redirect after signup
   };
 
   return (

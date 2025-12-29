@@ -2,6 +2,7 @@ import React from "react";
 import "../theme/Auth.css";
 
 const Login = () => {
+  // window.location.href = "/dashboard"; // redirect after login
   return (
     <div className="auth-container">
       <form className="auth-card">
