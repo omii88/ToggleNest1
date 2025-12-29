@@ -23,7 +23,7 @@ const Signup = () => {
     localStorage.setItem("password", password); // only for demo, not secure
 
     // Set loggedIn flag when signing up
-    localStorage.setItem("loggedIn", "true");
+    // localStorage.setItem("loggedIn", "true");
 
     navigate("/login"); // redirect using React Router
   };
