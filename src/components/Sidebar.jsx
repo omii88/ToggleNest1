@@ -18,9 +18,15 @@ const Sidebar = ({ addProject, addTask }) => {
     }
   };
 
+  // ✅ Updated handleAddTask with default status
   const handleAddTask = () => {
     if (nameValue.trim() && deadlineValue) {
-      addTask({ name: nameValue.trim(), deadline: deadlineValue });
+      addTask({
+        name: nameValue.trim(),
+        deadline: deadlineValue,
+        project: "", // optional: assign to project if needed
+        status: "Pending", // default status
+      });
       setNameValue("");
       setDeadlineValue("");
       setShowTaskPopup(false);
