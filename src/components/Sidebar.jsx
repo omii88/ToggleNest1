@@ -73,7 +73,6 @@ const Sidebar = ({ addProject, addTask }) => {
 <NavLink to="/teampage" className="menu-link">
   {({ isActive }) => <li className={isActive ? "active" : ""}>Team</li>}
 </NavLink>
-     feature/team-analytics
         </ul>
 
         <div className="quick-actions">
