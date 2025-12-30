@@ -8,7 +8,6 @@ import Projects from "./pages/Projects";
 import Projectboard from "./pages/Projectboard";
 import Sprints from "./pages/Sprints";
 import Boards from "./pages/Boards";
-import Boards from "./pages/Boards"
 import Analytics from "./pages/Analytics";
 import TeamPage from "./pages/TeamPage";
 
