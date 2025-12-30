@@ -39,21 +39,6 @@ const Sidebar = ({ addProject, addTask }) => {
         <h2 className="logo">Workspace</h2>
 
         <ul className="menu">
-          <li>
-            <NavLink to="/dashboard" className={({ isActive }) => (isActive ? "active menu-link" : "menu-link")}>Dashboard</NavLink>
-          </li>
-          <li>
-            <NavLink to="/boards" className={({ isActive }) => (isActive ? "active menu-link" : "menu-link")}>Boards</NavLink>
-          </li>
-          <li>
-            <NavLink to="/sprints" className={({ isActive }) => (isActive ? "active menu-link" : "menu-link")}>Sprints</NavLink>
-          </li>
-          <li>
-            <NavLink to="/analytics" className={({ isActive }) => (isActive ? "active menu-link" : "menu-link")}>Analytics</NavLink>
-          </li>
-          <li>
-            <NavLink to="/team" className={({ isActive }) => (isActive ? "active menu-link" : "menu-link")}>Team</NavLink>
-          </li>
           <NavLink to="/dashboard" className="menu-link">
             {({ isActive }) => <li className={isActive ? "active" : ""}>Dashboard</li>}
           </NavLink>
@@ -62,18 +47,18 @@ const Sidebar = ({ addProject, addTask }) => {
             {({ isActive }) => <li className={isActive ? "active" : ""}>Boards</li>}
           </NavLink>
 
-        <NavLink to="/sprints" className="menu-link">
-  {({ isActive }) => <li className={isActive ? "active" : ""}>Sprints</li>}
-</NavLink>
+          <NavLink to="/sprints" className="menu-link">
+            {({ isActive }) => <li className={isActive ? "active" : ""}>Sprints</li>}
+          </NavLink>
 
-<NavLink to="/analytics" className="menu-link">
-  {({ isActive }) => <li className={isActive ? "active" : ""}>Analytics</li>}
-</NavLink>
+          <NavLink to="/analytics" className="menu-link">
+            {({ isActive }) => <li className={isActive ? "active" : ""}>Analytics</li>}
+          </NavLink>
 
-<NavLink to="/teampage" className="menu-link">
-  {({ isActive }) => <li className={isActive ? "active" : ""}>Team</li>}
-</NavLink>
-        </ul>
+          <NavLink to="/teampage" className="menu-link">
+            {({ isActive }) => <li className={isActive ? "active" : ""}>Team</li>}
+          </NavLink>
+                  </ul>
 
         <div className="quick-actions">
           <p>Quick Actions</p>
