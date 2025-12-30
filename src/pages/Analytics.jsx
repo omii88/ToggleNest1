@@ -65,11 +65,11 @@ const Analytics = () => {
 
           {/* TOP BAR */}
           <div className="analytics-topbar">
-<p>
-  Comprehensive insights into team performance
-  <br />
-  and project metrics
-</p>
+              <p>
+                Comprehensive insights into team performance
+                <br />
+                and project metrics
+              </p>
 
             <div className="topbar-actions">
               <select>
