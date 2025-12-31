@@ -34,13 +34,13 @@ const Navbar = () => {
             </button>
           </li>
           <li>
-            <button className="link-btn" onClick={() => handleProtectedNavigation("/projects")}>
-              Projects
+            <button className="link-btn" onClick={() => handleProtectedNavigation("/workspace")}>
+              WorkSpace
             </button>
           </li>
           <li>
-            <button className="link-btn" onClick={() => handleProtectedNavigation("/project-board")}>
-              Project Board
+            <button className="link-btn" onClick={() => handleProtectedNavigation("/sprints")}>
+              Create +
             </button>
           </li>
         </ul>

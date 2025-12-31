@@ -4,8 +4,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import Projects from "./pages/Projects";
-import Projectboard from "./pages/Projectboard";
+import WorkSpace from "./pages/WorkSpace";
 import Sprints from "./pages/Sprints";
 import Boards from "./pages/Boards";
 import Analytics from "./pages/Analytics";
@@ -21,8 +20,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/project-board" element={<Projectboard />} />
+        <Route path="/workspace" element={<WorkSpace />} />
         <Route path="/sprints" element={<Sprints />} />
         <Route path="/boards" element={<Boards />} />
         <Route path="/analytics" element={<Analytics />} />
